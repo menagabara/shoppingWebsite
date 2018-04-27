@@ -4,7 +4,8 @@ export class User {
         public email: string,
         public name: string,
         public password: string,
-        public address: string //in case of customer, insert this field with null for now:D.
+        public address: string ,
+        public naionalID: string//in case of customer, insert this field with null for now:D.
     ) {}
 }
   
