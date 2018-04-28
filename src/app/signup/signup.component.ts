@@ -28,11 +28,12 @@ import { User } from '../models/user.model';
 export class SignupComponent {
 
   
-  model = new User(18, 'your name', 'your email', 'your password','your address','');
+  model = new User(18, 'your email', 'your name', 'your password','your address','');
 
   submitted = false;
 
-  onSubmit() { this.submitted = true; }
+  onSubmit() { this.submitted = true;
+    }
 
   // TODO: Remove this when we're done
   get diagnostic() { return JSON.stringify(this.model); }
