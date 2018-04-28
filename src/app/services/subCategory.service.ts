@@ -16,4 +16,7 @@ export class SubCategoryService {
     return this.subCategories.slice();
   }
   
+  getSubCatId(id:number){
+    return this.subCategories[id]
+  }
 }

@@ -13,7 +13,12 @@ export class CategoryService {
   ]
   
   getCategories() {
+    //only copy of the list.
     return this.categories.slice();
+  }
+
+  getCatId(id:number){
+    return this.categories[id]
   }
   
 }

@@ -29,6 +29,7 @@ import { ProductDetailComponent } from './categories/category-detail/sub-catgory
 import { OneSubCategoryComponent } from './categories/category-detail/sub-catgory-list/one-sub-category/one-sub-category.component';
 import { SubCategoryService } from './services/subCategory.service';
 import { ProductService } from './services/product.service';
+import { AppRoutingModule } from './app-routing.module';
 
 
 @NgModule({
@@ -60,7 +61,8 @@ import { ProductService } from './services/product.service';
   ],
   imports: [
     BrowserModule,
-    FormsModule
+    FormsModule,
+    AppRoutingModule
   ],
   providers: [SubCategoryService, ProductService],
   bootstrap: [AppComponent]

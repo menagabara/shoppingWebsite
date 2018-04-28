@@ -1,5 +1,6 @@
-<app-header (dropDownSelected) = "onSelectedVal($event)"></app-header>
-<!-- which value to return in the dropdown menu. -->
-<app-categories *ngIf="valueSelected !== 'categories'"></app-categories>
+<app-header
+ (dropDownSelected) = "onSelectedVal($event)"
+>
+</app-header>
 
-<app-signup></app-signup>
+<router-outlet></router-outlet>

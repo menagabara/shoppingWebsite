@@ -7,7 +7,8 @@ export class Product extends SubCategory {
         public price: number,
         public rate: number, //PS: this could be changed to be a seperate document, if it would be handled here.
         public description: string,
-        public image: string
+        public image: string,
+        public pieces: number
     ) {
         super(id,name)
     }

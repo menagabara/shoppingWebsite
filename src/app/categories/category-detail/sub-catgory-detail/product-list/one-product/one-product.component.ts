@@ -10,16 +10,9 @@ import { ProductService } from '../../../../../services/product.service';
 
 export class OneProductComponent implements OnInit {
   @Input() product: Product
-
-  constructor(
-    private productService: ProductService
-  ) { }
+  @Input() id: number
 
   ngOnInit() {
-  }
-
-  onSelected(){
-    this.productService.productSelected.emit(this.product)
   }
 
 }

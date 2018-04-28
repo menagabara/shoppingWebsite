@@ -1,9 +1,6 @@
 <br>
 {{category.name}}
+
 <app-sub-catgory-list></app-sub-catgory-list>
 
-<app-sub-catgory-detail 
-    *ngIf="selectedSubCategory"
-        [subCategory]="selectedSubCategory"
->
-</app-sub-catgory-detail>
+<router-outlet></router-outlet>

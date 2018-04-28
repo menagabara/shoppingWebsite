@@ -1,8 +1,9 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Category } from '../../models/category.model';
 import { CategoryService } from '../../services/category.service';
 import { SubCategory } from '../../models/subCategory.model';
 import { SubCategoryService } from '../../services/subCategory.service';
+import { ActivatedRoute,Params } from '@angular/router';
 
 @Component({
   selector: 'app-category-detail',
@@ -11,22 +12,31 @@ import { SubCategoryService } from '../../services/subCategory.service';
 })
 
 export class CategoryDetailComponent implements OnInit {
-  @Input() category: Category
-  
+  category: Category
+  id: number  
+
   selectedSubCategory : SubCategory
 
   constructor(
     private catservice: CategoryService,
+    private route: ActivatedRoute,
     private subCatService : SubCategoryService
   ) { }
   
   
-  //load and update subcategory.
+ 
   ngOnInit() {
+     //update route.
+    this.route.params.subscribe(
+      (params:Params)=>{
+        this.id = +params['id'] //convert string to int.
+        this.category = this.catservice.getCatId(this.id)
+      }
+    )
+     //load and update subcategory.
     this.subCatService.subCategorySelected.subscribe(
         (subCategory: SubCategory) => {
           this.selectedSubCategory = subCategory
-          
         }
       )
   }

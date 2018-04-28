@@ -2,8 +2,4 @@
 {{subCategory.name}}
 
 <app-product-list></app-product-list>
-<app-product-detail 
-    *ngIf="selectedProduct"
-        [product]="selectedProduct"
->
-</app-product-detail>
+<router-outlet></router-outlet>

@@ -1,4 +1,5 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { Router, ActivatedRoute } from '@angular/router';
 import { Category } from '../../models/category.model';
 import { CategoryService } from '../../services/category.service';
 
@@ -11,7 +12,12 @@ import { CategoryService } from '../../services/category.service';
 export class CategoryListComponent implements OnInit {
   categories: Category[]
 
-  constructor(private catService: CategoryService) {}
+  constructor(
+    private catService: CategoryService,
+    private router: Router,
+    private route: ActivatedRoute
+
+  ) {}
 
   ngOnInit() {
     this.categories = this.catService.getCategories()

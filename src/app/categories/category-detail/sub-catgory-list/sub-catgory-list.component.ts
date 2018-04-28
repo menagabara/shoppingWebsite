@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router, ActivatedRoute } from '@angular/router';
 import { SubCategory } from '../../../models/subCategory.model';
 import { SubCategoryService } from '../../../services/subCategory.service';
 
@@ -13,7 +14,9 @@ export class SubCatgoryListComponent implements OnInit {
   subCategories: SubCategory[]
 
   constructor(
-    private subCatService: SubCategoryService
+    private subCatService: SubCategoryService,
+    private router: Router,
+    private route: ActivatedRoute
   ) {}
 
   ngOnInit() {

@@ -9,18 +9,11 @@ import { SubCategoryService } from '../../../../services/subCategory.service';
 }) 
 
 export class OneSubCategoryComponent implements OnInit {
-  @Input() subCategory: SubCategory
-
-  constructor(
-    private subCatService: SubCategoryService
-  ) { }
+  @Input() subCategory : SubCategory
+  @Input() id : number
 
   ngOnInit() {
   }
 
-  //get the selected sub category.
-  onSelected(){
-    this.subCatService.subCategorySelected.emit(this.subCategory)
-  }
 
 }

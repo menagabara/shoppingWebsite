@@ -15,12 +15,26 @@
 </style>
 
 <ul id="drop-nav">
-  <li><a href="#">=</a>
+  <li><a>=</a>
     <ul>
         <li>
-          <a (click)="onSelect('category')">All Categories</a>
+          <a routerLink="/home">Home</a>
+        </li>
+        <li>
+          <a routerLink="">Account</a>
+        </li>
+        <li>
+          <a routerLink="/categories">Categories</a>
         </li>
     </ul>
   </li>
 </ul>
-<br><br><br>
+&nbsp;
+<!-- if visitor  -->
+<a routerLink="/signup">sign up</a>
+&nbsp;
+<a routerLink="/login">sign in</a> 
+<!--if user, logout icon.-->
+<!-- here goes the logic if logged in display profile and cart icones -->
+
+<br><br><br><br><br><br><br>

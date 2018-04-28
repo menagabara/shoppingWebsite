@@ -1,6 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { Category } from '../../../models/category.model';
-import { CategoryService } from '../../../services/category.service';
 
 @Component({
   selector: 'app-one-category',
@@ -9,16 +8,10 @@ import { CategoryService } from '../../../services/category.service';
 })
 
 export class OneCategoryComponent implements OnInit {
-  @Input() category: Category
-
-  constructor(private catService: CategoryService) { }
+  @Input() category : Category
+  @Input() id : number
 
   ngOnInit() {
-  }
-
-  //get the selected category.
-  onSelected(){
-    this.catService.categorySelected.emit(this.category)
   }
 
 }

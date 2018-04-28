@@ -1,3 +1,10 @@
-<a (click)="onSelected()">
-  {{product.name}}
-</a>
+<br>
+<ul>
+    <img [src]="product.image" align="left" alt="{{ product.name }}" style="max-height: 100;max-width:100px">
+    <h4>{{product.name}}</h4>
+    <p>{{product.price}}</p>
+    <p>{{product.rate}}</p>
+    <p>{{product.description}}</p>
+    <p>{{product.pieces}} available</p>
+    <button [routerLink]="[id]">View Product</button>
+</ul>
