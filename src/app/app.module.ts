@@ -22,11 +22,13 @@ import { CategoryListComponent } from './categories/category-list/category-list.
 import { OneCategoryComponent } from './categories/category-list/one-category/one-category.component';
 import { CategoryDetailComponent } from './categories/category-detail/category-detail.component';
 import { SubCatgoryListComponent } from './categories/category-detail/sub-catgory-list/sub-catgory-list.component';
-import { OneSubCategoryComponent } from './categories/category-detail/sub-catgory-list/one-sub-category/one-sub-category.component';
 import { SubCatgoryDetailComponent } from './categories/category-detail/sub-catgory-detail/sub-catgory-detail.component';
 import { ProductListComponent } from './categories/category-detail/sub-catgory-detail/product-list/product-list.component';
 import { OneProductComponent } from './categories/category-detail/sub-catgory-detail/product-list/one-product/one-product.component';
 import { ProductDetailComponent } from './categories/category-detail/sub-catgory-detail/product-detail/product-detail.component';
+import { OneSubCategoryComponent } from './categories/category-detail/sub-catgory-list/one-sub-category/one-sub-category.component';
+import { SubCategoryService } from './services/subCategory.service';
+import { ProductService } from './services/product.service';
 
 
 @NgModule({
@@ -60,7 +62,7 @@ import { ProductDetailComponent } from './categories/category-detail/sub-catgory
     BrowserModule,
     FormsModule
   ],
-  providers: [],
+  providers: [SubCategoryService, ProductService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

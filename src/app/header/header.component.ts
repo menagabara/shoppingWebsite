@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 
 @Component({
   selector: 'app-header',
@@ -10,6 +10,13 @@ export class HeaderComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
+  }
+
+  //pass it to the app component.
+  @Output() dropDownSelected = new EventEmitter<string>()
+
+  onSelect(category) {
+    this.dropDownSelected.emit(category)
   }
 
 }

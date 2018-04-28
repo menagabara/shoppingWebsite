@@ -1,3 +1,6 @@
-<p>
-  sub-catgory-list works!
-</p>
+<app-one-sub-category 
+  *ngFor="let subCategory of subCategories; let i = index"
+      [subCategory]="subCategory"
+>
+</app-one-sub-category>
+  

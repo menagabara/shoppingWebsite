@@ -1,6 +1,6 @@
-import { subCategory } from "./subCategory.model";
+import { SubCategory } from "./subCategory.model";
 
-export class Product extends subCategory {
+export class Product extends SubCategory {
     constructor(
         public id: number,
         public name: string,
@@ -12,3 +12,4 @@ export class Product extends subCategory {
         super(id,name)
     }
 }
+
