@@ -3,10 +3,8 @@
 </p>
 <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 
-<!-- Optional theme -->
 <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
 
-<!-- Latest compiled and minified JavaScript -->
 <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
 <div class="container">
   <div [hidden]="submitted">
@@ -29,24 +27,35 @@
         <input type="email" class="form-control" id="email"
                required
                [(ngModel)]="model.email" name="email"
-               #email="ngModel">
-        <!-- <span class="help-block" *ngIf="!email.valid && email.touched">Please enter a valid email!</span> -->
-        <div [hidden]="email.valid && email.touched"
-             class="alert alert-danger">
-          valid Email is required
-        </div>
-      </div>
+               #email="ngModel"
+               pattern="^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$">
+
+               <div class="alert alert-danger" [hidden]="email.valid || email.untouched">
+                   <div  *ngIf="email.errors && email.errors.required">
+                       Email is required
+                   </div>
+                   <div  *ngIf="email.errors && email.errors.pattern">
+                       Email is invalid
+                   </div>
+               </div>
+      </div> 
       
       <div class="form-group">
         <label for="password">password</label>
         <input type="password" class="form-control" id="password"
                required
                [(ngModel)]="model.password" name="password"
-               #password="ngModel">
-        <div [hidden]="password.valid || password.pristine"
-             class="alert alert-danger">
-             password is required
-        </div>
+               #password="ngModel"
+              pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[$@$!%*?&])[A-Za-z\d$@$!%*?&]{8}">
+              <div class="alert alert-danger" [hidden]="password.valid || password.pristine">
+                <div  *ngIf="password.errors && password.errors.required">
+                  password is required
+                </div>
+                <div  *ngIf="password.errors && password.errors.pattern">
+                  password is invalid 
+                  password must contain 8 characters number and alphabet and special characters  
+                </div>
+            </div>
       </div>
 
       <div class="form-group">
@@ -54,11 +63,16 @@
         <input type="password" class="form-control" id="Repassword"
                required
                [(ngModel)]="model.password" name="password"
-               #Repassword="ngModel">
-        <div [hidden]="password.valid || password.pristine"
-             class="alert alert-danger">
-             mismatch
-        </div>
+               #Repassword="ngModel"pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[$@$!%*?&])[A-Za-z\d$@$!%*?&]{8}">
+               <div class="alert alert-danger" [hidden]="password.valid || password.pristine">
+                 <div  *ngIf="password.errors && password.errors.required">
+                   password mismatch
+                 </div>
+                 <div  *ngIf="password.errors && password.errors.pattern">
+                   password is invalid 
+                   password must contain 8 characters number and alphabet and special characters  
+                 </div>
+             </div>
       </div>
 
       <div class="form-group">
@@ -72,8 +86,11 @@
              address is required
         </div>
       </div>
-
-      <button type="submit" class="btn btn-success" [disabled]="!signupForm.form.valid">Submit</button>
+       <!-- <div class="form-group"> -->
+        <input type="checkbox" name="checkPolicy" ng-model="checkPolicy" required> Agree the <a href="#">terms and policy</a>
+     <!-- </div> -->
+        <button type="submit" class="btn btn-primary" [disabled]="signupForm.invalid && !checkPolicy">Submit</button>
+ 
       <h6><a href="./seller-signup/seller-signup.html">signup as a seller?</a></h6>
   
     </form>
