@@ -1,3 +1,48 @@
-<p>
-  login works!
-</p>
+﻿<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+<div class="container">
+  
+  <div class="col-md-6 col-md-offset-3">
+    <h2>Login</h2>
+    <form name="form" (ngSubmit)="f.form.valid && login()" #f="ngForm" novalidate>
+        <div class="form-group" [ngClass]="{ 'has-error': f.submitted && !email.valid }">
+            <label for="email">email</label>
+            <input type="email" class="form-control" name="email" [(ngModel)]="model.email" #email="ngModel" required />
+            <div *ngIf="f.submitted && !email.valid" class="alert alert-danger">
+                <div  *ngIf="email.errors && email.errors.required">
+                Email is required
+            </div>
+            <div  *ngIf="email.errors && email.errors.pattern">
+                Email is invalid
+            </div>
+        </div>
+        </div>
+
+
+        <div class="form-group" [ngClass]="{ 'has-error': f.submitted && !password.valid }">
+            <label for="password">Password</label>
+            <input type="password" class="form-control" id="password" required  [(ngModel)]="model.password" #password="ngModel" name="password" />
+            <div *ngIf="f.submitted && !password.valid" class="alert alert-danger">
+                <div  *ngIf="password.errors && password.errors.required">
+              password is required
+            </div>
+            <div  *ngIf="password.errors && password.errors.pattern">
+              password is invalid 
+              password must contain 8 characters number and alphabet and special characters  
+            </div>
+        
+        </div>
+        </div>
+        <div class="form-group">
+            <button [disabled]="loading" class="btn btn-primary">Login</button>
+            <img *ngIf="loading" src="data:image/gif;base64,R0lGODlhEAAQAPIAAP///wAAAMLCwkJCQgAAAGJiYoKCgpKSkiH/C05FVFNDQVBFMi4wAwEAAAAh/hpDcmVhdGVkIHdpdGggYWpheGxvYWQuaW5mbwAh+QQJCgAAACwAAAAAEAAQAAADMwi63P4wyklrE2MIOggZnAdOmGYJRbExwroUmcG2LmDEwnHQLVsYOd2mBzkYDAdKa+dIAAAh+QQJCgAAACwAAAAAEAAQAAADNAi63P5OjCEgG4QMu7DmikRxQlFUYDEZIGBMRVsaqHwctXXf7WEYB4Ag1xjihkMZsiUkKhIAIfkECQoAAAAsAAAAABAAEAAAAzYIujIjK8pByJDMlFYvBoVjHA70GU7xSUJhmKtwHPAKzLO9HMaoKwJZ7Rf8AYPDDzKpZBqfvwQAIfkECQoAAAAsAAAAABAAEAAAAzMIumIlK8oyhpHsnFZfhYumCYUhDAQxRIdhHBGqRoKw0R8DYlJd8z0fMDgsGo/IpHI5TAAAIfkECQoAAAAsAAAAABAAEAAAAzIIunInK0rnZBTwGPNMgQwmdsNgXGJUlIWEuR5oWUIpz8pAEAMe6TwfwyYsGo/IpFKSAAAh+QQJCgAAACwAAAAAEAAQAAADMwi6IMKQORfjdOe82p4wGccc4CEuQradylesojEMBgsUc2G7sDX3lQGBMLAJibufbSlKAAAh+QQJCgAAACwAAAAAEAAQAAADMgi63P7wCRHZnFVdmgHu2nFwlWCI3WGc3TSWhUFGxTAUkGCbtgENBMJAEJsxgMLWzpEAACH5BAkKAAAALAAAAAAQABAAAAMyCLrc/jDKSatlQtScKdceCAjDII7HcQ4EMTCpyrCuUBjCYRgHVtqlAiB1YhiCnlsRkAAAOwAAAAAAAAAAAA==" />
+            <a [routerLink]="['/signup']" class="btn btn-link">Sign up</a>
+        </div>
+    </form>
+</div>
+
+
+ 
