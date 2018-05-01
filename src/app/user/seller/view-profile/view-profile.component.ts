@@ -16,6 +16,7 @@ export class ViewProfileComponent implements OnInit {
   constructor(
     private route: ActivatedRoute,
     private userService: UserService,
+    private location: Location
   ) {}
 
   ngOnInit(): void {

@@ -1,14 +1,31 @@
 <div class="box-con">
-  <div *ngIf="user">
+  <table *ngIf="user">
     <h2>{{user.name | uppercase}} Details</h2>
-    <div><span>id: </span>{{user.id}}</div>
-    <div><span>name: </span>{{user.name}}</div>
-    
-    <div>
-      <label>name:
-        <input [(ngModel)]="user.name" placeholder="name">
-      </label>
-    </div>
-  </div>
+    <tr>
+        <td>Name</td>
+        <td>
+          <label for=""></label>  
+          <input [(ngModel)]="user.name" placeholder="name">
+        </td>
+    </tr>
+    <tr>
+        <td>Email</td>
+        <td>
+            <input [(ngModel)]="user.email" placeholder="email">
+        </td>
+    </tr>
+    <tr>
+        <td>Password</td>
+        <td>
+            <input [(ngModel)]="user.password" placeholder="password">
+        </td>
+    </tr>
+    <tr>
+        <td>Address</td>
+        <td>
+            <input [(ngModel)]="user.address" placeholder="address">
+        </td>
+    </tr>
+  </table>
   <button (click)="save()">save</button>  
 </div>

@@ -22,12 +22,10 @@ export class UserService {
 
   getById(id: number): Observable<User> {
     const url = `${this.usersUrl}/${id}`;
-    const user =  this.http.get<User>(url).pipe(
+    return this.http.get<User>(url).pipe(
       tap(_ => this.log(`fetched hero id=${id}`)),
-      catchError(this.handleError<User>(`getHero id=${id}`))
+      catchError(this.handleError<User>(`getUser id=${id}`))
     );
-    user.subscribe(users => console.log(users));
-    return user;
   }
 
   create(user: User) {
@@ -35,7 +33,7 @@ export class UserService {
   }
 
   update(user: User): Observable<any> {
-    return this.http.put(this.usersUrl + user.id, user, httpOptions).pipe(
+    return this.http.put(this.usersUrl, user, httpOptions).pipe(
       tap(_ => this.log(`updated user id=${user.id}`)),
       catchError(this.handleError<any>('updateUser'))
     );
