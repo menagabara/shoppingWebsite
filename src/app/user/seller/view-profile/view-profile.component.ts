@@ -1,4 +1,10 @@
 import { Component, OnInit } from '@angular/core';
+import { User } from '../../../models/user.model';
+
+import { ActivatedRoute } from '@angular/router';
+import { Location } from '@angular/common';
+
+import { UserService } from '../../../services/user.service';
 
 @Component({
   selector: 'app-view-profile',
@@ -6,13 +12,19 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./view-profile.component.css']
 })
 export class ViewProfileComponent implements OnInit {
+  user: User;
+  constructor(
+    private route: ActivatedRoute,
+    private userService: UserService,
+  ) {}
 
-  userName = "Ahmed"
-  userEmail = "ahmed@gmail.com"
-  userAddress = "october, Giza, Egypt"
-  constructor() { }
-
-  ngOnInit() {
+  ngOnInit(): void {
+    this.getUser();
   }
 
+  getUser(): void {
+    const id = +this.route.snapshot.paramMap.get('id');
+    this.userService.getById(id)
+      .subscribe(user => this.user = user);
+  }
 }

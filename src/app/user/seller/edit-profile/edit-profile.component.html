@@ -1,3 +1,14 @@
-<h1>
-  edit-profile works!  
-</h1>
+<div class="box-con">
+  <div *ngIf="user">
+    <h2>{{user.name | uppercase}} Details</h2>
+    <div><span>id: </span>{{user.id}}</div>
+    <div><span>name: </span>{{user.name}}</div>
+    
+    <div>
+      <label>name:
+        <input [(ngModel)]="user.name" placeholder="name">
+      </label>
+    </div>
+  </div>
+  <button (click)="save()">save</button>  
+</div>

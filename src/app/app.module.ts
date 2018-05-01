@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { FormsModule }   from '@angular/forms';
+import { FormsModule } from '@angular/forms';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { fakeBackendProvider } from './_helpers/index';
 
@@ -10,13 +10,16 @@ import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
 import { LoginComponent } from './login/index';
 import { SignupComponent } from './signup/index';
-import { routing }  from './app-routing.module';
+import { routing } from './app-routing.module';
 
 import { AlertComponent } from './_directives/index';
 import { AuthGuard } from './_guards/index';
 import { JwtInterceptor } from './_helpers/index';
 // import { CustomerSignupComponent } from './signup/customer-signup/customer-signup.component';
 
+// Simulate a data server
+import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
+import { InMemoryDataService } from './in-memory-data.service';
 
 // import { SellerSignupComponent } from './signup/seller-signup/seller-signup.component';
 import { UserComponent } from './user/user.component';
@@ -71,14 +74,15 @@ import { ProductService } from './services/product.service';
     ProductListComponent,
     OneProductComponent,
     ProductDetailComponent,
-    
-    
   ],
   imports: [
     BrowserModule,
     FormsModule,
     // AppRoutingModule,
     HttpClientModule,
+    HttpClientInMemoryWebApiModule.forRoot(
+      InMemoryDataService, { dataEncapsulation: false }
+      ),
     routing
   ],
   providers: [SubCategoryService, ProductService, AuthGuard,
