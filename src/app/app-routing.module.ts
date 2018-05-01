@@ -10,6 +10,9 @@ import { OneCategoryComponent } from "./categories/category-list/one-category/on
 import { CategoryDetailComponent } from "./categories/category-detail/category-detail.component";
 import { SubCatgoryDetailComponent } from "./categories/category-detail/sub-catgory-detail/sub-catgory-detail.component";
 import { ProductDetailComponent } from "./categories/category-detail/sub-catgory-detail/product-detail/product-detail.component";
+import { UserComponent } from "./user/user.component"
+import { EditProfileComponent } from "./user/seller/edit-profile/edit-profile.component"
+import { ViewProfileComponent } from "./user/seller/view-profile/view-profile.component"
 
 //add all the routers/pages here.
 const appRoutes: Routes =[
@@ -50,10 +53,21 @@ const appRoutes: Routes =[
                     }
                 ]
             }
-
+        ]
+    },
+    {
+        path: 'profile',
+        children: [
+            {
+                path: 'edit', 
+                component: EditProfileComponent
+            },
+            {
+                path: 'view', 
+                component: ViewProfileComponent
+            }
         ]
     }
-
 ]
 
 @NgModule({
@@ -65,4 +79,4 @@ const appRoutes: Routes =[
 
 export class AppRoutingModule{
 
-} 
+}

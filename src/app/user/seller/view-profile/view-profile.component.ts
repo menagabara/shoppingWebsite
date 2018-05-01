@@ -7,6 +7,9 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ViewProfileComponent implements OnInit {
 
+  userName = "Ahmed"
+  userEmail = "ahmed@gmail.com"
+  userAddress = "october, Giza, Egypt"
   constructor() { }
 
   ngOnInit() {
